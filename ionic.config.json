@@ -1,0 +1,7 @@
+{
+  "name": "android_mbshop",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

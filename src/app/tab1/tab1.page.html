@@ -1,0 +1,80 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+  <ion-item *ngFor="let item of datas" >
+    <div *ngIf="item.id_package == ''">
+      {{item.id_package}}
+    </div>
+    <div *ngIf="item.package_name != ''">
+      <ion-checkbox></ion-checkbox>
+      <ion-label>{{item.package_name}}</ion-label>
+    </div>
+  </ion-item>
+
+  <ion-grid >
+    <h5 class="ion-text-center">Welcome</h5>
+    <ion-grid [fixed]="true">
+      <!-- <ion-row>
+        <ion-col class="ion-text-left"><ion-text color="medium">Silahkan copy nomor dengan awalan +62/08/62</ion-text></ion-col>
+      </ion-row> -->
+      <ion-row>
+        <ion-col class="ion-text-left" size="auto"><ion-text color="medium">*clear</ion-text></ion-col>
+        <ion-col class="ion-text-left"><ion-text color="medium">: Hapus isian / delete number</ion-text></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-left" size="auto"><ion-text color="medium">*convert</ion-text></ion-col>
+        <ion-col class="ion-text-left"><ion-text color="medium">: Membuat link / make link</ion-text></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-left" size="auto"><ion-text color="medium">*open wa link</ion-text></ion-col>
+        <ion-col class="ion-text-left"><ion-text color="medium">: Membuka web wa api / open browser</ion-text></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-grid>
+  <ion-card color="white">
+    <ion-card-header>
+      <ion-label position="floating">Phone</ion-label>
+      <ion-item>
+        <ion-input name="no" [(ngModel)]="dataurl.no" placeholder="082xxx / +62xxx"></ion-input>
+      </ion-item>
+      <br>
+      <ion-label position="floating">Country Code (Default Indonesia)</ion-label>
+      <ion-item>
+        <ion-input name="con" [(ngModel)]="dataurl.con" placeholder="62/355"></ion-input>
+      </ion-item>
+      <ion-button fill="solid" (click)="clear()"  >
+        Clear
+      </ion-button>
+      <ion-button fill="solid" (click)="convert()"  >
+        Convert
+      </ion-button>
+      <ion-button fill="solid" (click)="open_link()"  >
+        Open wa link
+      </ion-button>
+      <br>
+      <ion-item>
+        <ion-input>{{ dataurl.url }}</ion-input>
+        <!-- <ion-button color="primary" (click)="copyString()">Copy</ion-button> -->
+        <!-- <a class="ion-home color-primary item" href="#" onclick="window.open('', '_system', 'location=yes'); return false;"> Dashboard</a> -->
+      </ion-item>
+      <ion-button cdkCopyToClipboard="{{ dataurl.url }}" class="waves-effect waves-light btn">
+        Copy to clipboard
+        </ion-button>
+      <!-- <ion-button fill="solid">
+        Open web
+      </ion-button> -->
+    </ion-card-header>
+  
+  </ion-card>
+</ion-content>
