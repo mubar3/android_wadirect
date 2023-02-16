@@ -5,6 +5,11 @@ Whatsapp Redirect
 </p>
 
 <p align="center">
-<a href="https://mbshop.id"><img src="readme/1.jpg" width="400"></a>
-<a href="https://mbshop.id"><img src="readme/2.jpg" width="400"></a>
+<a href="https://mbshop.id"><img src="readme/1.jpg" width="200"></a>
+<a href="https://mbshop.id"><img src="readme/2.jpg" width="200"></a>
+<a href="https://mbshop.id"><img src="readme/3.jpg" width="200"></a>
+<a href="https://mbshop.id"><img src="readme/4.jpg" width="200"></a>
+<a href="https://mbshop.id"><img src="readme/5.jpg" width="200"></a>
+<a href="https://mbshop.id"><img src="readme/6.jpg" width="200"></a>
+<a href="https://mbshop.id"><img src="readme/7.jpg" width="200"></a>
 </p>
