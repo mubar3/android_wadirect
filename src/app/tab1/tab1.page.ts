@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  // loading:any;
   public datas=([] as any[]);
   dataurl={
     url:'url',
@@ -17,12 +18,22 @@ export class Tab1Page {
   }
 
   constructor(private alertController: AlertController,
-    private loadingCtrl: LoadingController) {}
+    private loadingCtrl: LoadingController,
+    private toastController: ToastController) {}
 
   // copyString(){
   //   this.clipboard.copy('sda');
   // }
 
+  async presentToast_copy(position: 'top' | 'middle' | 'bottom') {
+    const toast = await this.toastController.create({
+      message: 'Copy to clipboard success',
+      duration: 1500,
+      position: position
+    });
+
+    await toast.present();
+  }
   
   clear(){
     this.dataurl.no='';
@@ -102,7 +113,12 @@ export class Tab1Page {
 
   }
   
-  convert(){
+  async convert(){
+    const loading = await this.loadingCtrl.create({
+      message: 'Loading..',
+      spinner: 'bubbles',
+    });
+    await loading.present();
     const no=this.dataurl.no;
     this.dataurl.no=this.dataurl.no.replace(/[- +-]/g,'');
     // if(this.dataurl.no.substr(0,2) == '08'){
@@ -120,14 +136,16 @@ export class Tab1Page {
     if(this.dataurl.no.substr(0,1) == '0'){
       this.dataurl.no=this.dataurl.con+this.dataurl.no.substr(1);
     }else if(this.dataurl.no.substr(0,2) != this.dataurl.con){
+      loading.dismiss();
       this.presentAlert();
       return;
     }
+    loading.dismiss();
 
     this.dataurl.url='https://wa.me/'+this.dataurl.no;
     this.dataurl.no=no;
 
-    this.load_fakegps()
+    // this.load_fakegps()
   }
   
 }

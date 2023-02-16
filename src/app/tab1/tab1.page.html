@@ -68,7 +68,7 @@
         <!-- <ion-button color="primary" (click)="copyString()">Copy</ion-button> -->
         <!-- <a class="ion-home color-primary item" href="#" onclick="window.open('', '_system', 'location=yes'); return false;"> Dashboard</a> -->
       </ion-item>
-      <ion-button cdkCopyToClipboard="{{ dataurl.url }}" class="waves-effect waves-light btn">
+      <ion-button cdkCopyToClipboard="{{ dataurl.url }}" (click)="presentToast_copy('bottom')" class="waves-effect waves-light btn">
         Copy to clipboard
         </ion-button>
       <!-- <ion-button fill="solid">
